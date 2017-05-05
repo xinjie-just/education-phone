@@ -1,17 +1,3 @@
-/*顶部部分元素的显示与隐藏*/
-$(window).scroll(function () {
-    if($(window).scrollTop()>=300) {
-    	$("#signinSignup").hide(400); /* 当滑动到不小于 200px 时，标语、登录、注册显示，导航隐藏 */
-    	$("#slogan").css("left", "320px");
-       	$("#nav").show(400);
-       	$("#logo img").attr("src", "images/logo3.png");
-    }else {
-        $("#signinSignup").show(400); /* 当滑动到不小于 200px 时，标语、登录、注册隐藏，导航显示 */
-		$("#slogan").css("left", "50%");       
-       	$("#nav").hide(400);
-       	$("#logo img").attr("src", "images/logo.png");
-    }
-});
 
 /*微信的显示与隐藏*/
 $("#weixinIcon").hover(function() {
