@@ -85,6 +85,7 @@ a {
     &:hover {
         //当链接处于焦点、被激活和鼠标悬停其上时清除轮廓
         outline-width: 0;
+        text-decoration: none;
     }
 }
 
@@ -398,13 +399,29 @@ label {
 .icon-menu:before {
     content: "\e600";
 }
+.icon-toTop:before {
+    content: "\e636";
+}
 .icon-online:before {
     content:"\e669";
 }
 
 /*===首页===*/
 /*头部*/
+/*回到顶部*/
 @size: 80px;
+#toTop {
+    display: none;
+    z-index: 9999;
+    position: fixed;
+    right: 5px;
+    bottom: 100px;
+    i {
+        display: block;
+        font-size: 36px;
+        color: #999;
+    }
+}
 #header {
     @height: 60px;
     z-index: 200;
@@ -570,43 +587,43 @@ label {
 /*新闻中心*/
 .news-center {
     background-color: #f6f6f6;
+    padding-bottom: 30px;
     .news-classify {
         .center-content;
         box-shadow: 3px 3px 5px #ccc, -3px 3px 5px #ccc;
         background-color: #fff;
         margin-top: 20px;
-        @p: 10px;
-        @height: 40px;
-        padding: @p + 5 @p;
-        min-height: @height * 3 + @p * 2;
+        padding: 15px 5px;
         border-radius: 10px;
-        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         figure {
             width: 70px;
         }
         ul {
-            width: 100%;
-            position: absolute;
-            top: @p;
-            left: @p;
-            padding-left: 78px;
-            padding-right: @p + 5;
+            flex: 1;
+            padding-right: 5px;
+            padding-left: 10px;
             li {
                 position: relative;
-                width: 100%;
-                height: @height;
+                margin-bottom: 15px;
+                min-height: 30px;
                 &:last-of-type {
                     margin-bottom: 0;
                 }
                 time {
                     position: absolute;
-                    top: 0;
+                    top: 50%;
                     left: 0;
                     display: block;
+                    transform: translateY(-50%);
                     width: 45px;
-                    height: @height;
+                    height: 30px;
+                    //font-size: 0;
                     span {
                         display: inline-block;
+                        height: 20px;
                         &.day {
                             color: @main-color;
                             font-size: @fs - 2;
@@ -620,7 +637,7 @@ label {
                             &:after {
                                 content: "/";
                                 position: absolute;
-                                bottom: 0;
+                                bottom: 3px;
                                 left: -6px;
                                 font-size: @fs + 4;
                                 font-weight: 100;
@@ -629,15 +646,19 @@ label {
                     }
                 }
                 h4 {
+                    display: inline-block;
+                    vertical-align: middle;
                     width: 100%;
-                    height: @height;
-                    padding-left: 50px;
+                    min-height: 30px;
+                    overflow: hidden;
                     a {
-                        display: block;
-                        height: @height;
-                        line-height: @height;
-                        .ellipsis;
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 100%;
+                        padding-left: 50px;
+                        min-height: 30px;
                         font-size: @fs - 4;
+                        line-height: 1.5;
                     }
                 }
             }
@@ -647,7 +668,6 @@ label {
 
 /*服务*/
 .service {
-    margin-top: 30px;
     ul {
         padding-top: 20px;
         padding-bottom: 20px;

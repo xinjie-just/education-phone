@@ -108,6 +108,7 @@ a:focus,
 a:active,
 a:hover {
   outline-width: 0;
+  text-decoration: none;
 }
 /* ===文本=== */
 abbr[title] {
@@ -356,11 +357,27 @@ label:hover {
 .icon-menu:before {
   content: "\e600";
 }
+.icon-toTop:before {
+  content: "\e636";
+}
 .icon-online:before {
   content: "\e669";
 }
 /*===首页===*/
 /*头部*/
+/*回到顶部*/
+#toTop {
+  display: none;
+  z-index: 9999;
+  position: fixed;
+  right: 5px;
+  bottom: 100px;
+}
+#toTop i {
+  display: block;
+  font-size: 36px;
+  color: #999;
+}
 #header {
   z-index: 200;
   position: relative;
@@ -524,6 +541,7 @@ label:hover {
 /*新闻中心*/
 .news-center {
   background-color: #f6f6f6;
+  padding-bottom: 30px;
 }
 .news-center .news-classify {
   display: block;
@@ -533,40 +551,40 @@ label:hover {
   box-shadow: 3px 3px 5px #cccccc, -3px 3px 5px #cccccc;
   background-color: #fff;
   margin-top: 20px;
-  padding: 15px 10px;
-  min-height: 140px;
+  padding: 15px 5px;
   border-radius: 10px;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 .news-center .news-classify figure {
   width: 70px;
 }
 .news-center .news-classify ul {
-  width: 100%;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding-left: 78px;
-  padding-right: 15px;
+  flex: 1;
+  padding-right: 5px;
+  padding-left: 10px;
 }
 .news-center .news-classify ul li {
   position: relative;
-  width: 100%;
-  height: 40px;
+  margin-bottom: 15px;
+  min-height: 30px;
 }
 .news-center .news-classify ul li:last-of-type {
   margin-bottom: 0;
 }
 .news-center .news-classify ul li time {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   display: block;
+  transform: translateY(-50%);
   width: 45px;
-  height: 40px;
+  height: 30px;
 }
 .news-center .news-classify ul li time span {
   display: inline-block;
+  height: 20px;
 }
 .news-center .news-classify ul li time span.day {
   color: #14c2b0;
@@ -582,29 +600,28 @@ label:hover {
 .news-center .news-classify ul li time span.month:after {
   content: "/";
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   left: -6px;
   font-size: 20px;
   font-weight: 100;
 }
 .news-center .news-classify ul li h4 {
+  display: inline-block;
+  vertical-align: middle;
   width: 100%;
-  height: 40px;
-  padding-left: 50px;
+  min-height: 30px;
+  overflow: hidden;
 }
 .news-center .news-classify ul li h4 a {
-  display: block;
-  height: 40px;
-  line-height: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  padding-left: 50px;
+  min-height: 30px;
   font-size: 12px;
+  line-height: 1.5;
 }
 /*服务*/
-.service {
-  margin-top: 30px;
-}
 .service ul {
   padding-top: 20px;
   padding-bottom: 20px;
