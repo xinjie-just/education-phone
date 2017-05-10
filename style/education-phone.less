@@ -399,6 +399,12 @@ label {
 .icon-menu:before {
     content: "\e600";
 }
+.icon-scan:before {
+    content: "\e65b";
+}
+.icon-triangle-right-bottom:before {
+    content: "\e624";
+}
 .icon-toTop:before {
     content: "\e636";
 }
@@ -721,7 +727,7 @@ label {
 
 
 /*底部*/
-#footer {
+footer {
     small {
         display: block;
         text-align: center;
@@ -760,5 +766,90 @@ label {
             font-size: @fs;
             color: @text-color;
         }
+    }
+}
+
+/*新闻列表页*/
+.news-list-type {
+    
+}
+.news-list {
+    margin-bottom: 50px;
+    li {
+        a {
+            width: 96%;
+            margin: 35px auto 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            .date {
+                .fl;
+                position: relative;
+                width: 90px;
+                height: 90px;
+                background: transparent url(../images/news-date-bg.png) no-repeat left top;
+                > strong {
+                    font-weight: normal;
+                }
+                .day {
+                    font-size: @fs;
+                    position: absolute;
+                    top: 24px;
+                    left: 26px;
+                    color: #fff;
+                }
+                .year {
+                    font-size: @fs - 6;
+                    position: absolute;
+                    top: 22px;
+                    right: 8px;
+                    color: #fff;
+                }
+                .month {
+                    font-size: @fs - 5;
+                    position: absolute;
+                    top: 34px;
+                    right: 5px;
+                    color: #333;
+                }
+            }
+            .text {
+                flex: 1;
+                height: 90px;
+                border-bottom: 1px solid #e5e5e5;
+                position: relative;
+                padding-left: 15px;
+                padding-top: 5px;
+                h2 {
+                    font-size: @fs;
+                    color: #333;
+                    line-height: 20px;
+                    height: 40px;
+                    /*多行文本移除*/
+                    display: -webkit-box !important;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-break: break-all;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+                span {
+                    display: block;
+                    margin-top: 10px;
+                }
+                > i {
+                    position: absolute;
+                    bottom: 5px;
+                    right: 0;
+                    font-size: @fs - 2;
+                    color: #6eb800;
+                }
+            }
+        }
+    }
+}
+#noSloganFooter {
+    small {
+        padding-bottom: 15px;        
     }
 }
