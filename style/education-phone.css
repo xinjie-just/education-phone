@@ -380,9 +380,8 @@ label:hover {
   bottom: 100px;
 }
 #toTop i {
-  display: block;
   font-size: 36px;
-  color: #999;
+  color: rgba(0, 0, 0, 0.5);
 }
 #header {
   z-index: 200;
@@ -793,4 +792,45 @@ footer .slogan strong {
 }
 #noSloganFooter small {
   padding-bottom: 15px;
+}
+/*新闻详情*/
+.news-article-type {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0dede;
+}
+.artilce {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+.artilce h2 {
+  font-size: 22px;
+  color: #000;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.artilce .group span {
+  font-size: 14px;
+  color: #ababab;
+}
+.artilce .group span:first-of-type {
+  margin-right: 15px;
+}
+.artilce article {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.artilce article p {
+  margin-top: 1em;
+  text-indent: 2em;
 }
