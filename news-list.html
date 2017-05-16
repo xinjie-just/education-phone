@@ -150,48 +150,72 @@
 		<script src="script/bootstrap.min.js"></script>
 		<script src="script/education-phone.js"></script>
 		<script>
-			var pageNo = 1;
-			var pageSize = 10;
-			function loadData(){
-				$.ajax({
+			/*没有数据时，让底部触底*/
+			function noData() {
+				var windowHeight = $(window).innerHeight();
+				var footerHeight = $("#noSloganFooter").height();
+				var figureHeight = $(".news-list-type").height();
+				var liLen = $(".news-list").find("li").length;
+				if (liLen == 0){
+					$(".news-list").text("没有数据").css({
+						textAlign: "center",
+						fontSize: "18px",
+						coor: "#333",
+						marginBottom: 0,
+						paddingTop: "20px",
+						height: windowHeight - footerHeight - figureHeight
+					});
+				}					
+			}
+			$(function(){
+				noData();
+				/*下拉刷新*/
+				var pageNo = 1;
+				var pageSize = 10;
+				function loadData(){
+					$.ajax({
 						url:"这里填入要访问的地址pageNo="+pageNo+"&pageSize="+pageSize,
 						dataType:"JSON",
 						success:function(data){
-							$.each(data,function(index,news){
-  	  	  	  					var html = "<li>"+
-										"<a href=\" " + news.link + " \" title=\" " + news.title + " \">"+
-											"<span class=\"date\">"+
-												"<strong class=\"day\">" + news.day + "</strong>"+
-												"<strong class=\"year\">" + news.year + "</strong>"+
-												"<strong class=\"month\">" + news.month + "</strong>"+
-											"</span>"+
-											"<div class=\"text\">"+
-												"<h2>" + news.title + "</h2>"+
-												"<span class=\"scan-count\">"+
-													"<i class=\"iconfont icon-scan\"></i>"+news.clicknum+
+							if(data.length == 0) {//下拉后没有数据时
+								$(".news-list").append("<p style='font-size: 18px; padding-top: 20px; padding-bottom: 20px; text-align: center;'>亲，已无更多内容哦~</p>");
+							}
+							else{
+								$.each(data,function(index,news){
+									var html = "<li>"+
+											"<a href=\" " + news.link + " \" title=\" " + news.title + " \">"+
+												"<span class=\"date\">"+
+													"<strong class=\"day\">" + news.day + "</strong>"+
+													"<strong class=\"year\">" + news.year + "</strong>"+
+													"<strong class=\"month\">" + news.month + "</strong>"+
 												"</span>"+
-												"<i class=\"iconfont icon-triangle-right-bottom\"></i>"+
-											"</div>	"+					
-										"</a>"+
-									"</li>";
-  								//alert("准备插入索引为"+index+"的数据");
-  								$(".news-list").append(html);
-  	  	  	  				});
+												"<div class=\"text\">"+
+													"<h2>" + news.title + "</h2>"+
+													"<span class=\"scan-count\">"+
+														"<i class=\"iconfont icon-scan\"></i>"+news.clicknum+
+													"</span>"+
+													"<i class=\"iconfont icon-triangle-right-bottom\"></i>"+
+												"</div>	"+					
+											"</a>"+
+										"</li>";
+									//alert("准备插入索引为"+index+"的数据");
+									$(".news-list").append(html);
+								});
+								pageNo += 1;
+							}
 						},error:function(){
 							alert("加载失败");
 						}
-				});
-			}
-			$(window).scroll(function(){
-				var scrollTop = $(this).scrollTop();
-				var scrollHeight = $(document).height();
-				var windowHeight = $(this).height();
-				if (scrollTop + windowHeight == scrollHeight) {
-					loadData();
+					});
 				}
-			});
-			$(function(){
-				loadData();			
+				$(window).scroll(function(){
+					var scrollTop = $(this).scrollTop();
+					var scrollHeight = $(document).height();
+					var windowHeight = $(this).height();
+					if (scrollTop + windowHeight == scrollHeight) {
+						loadData();
+					}
+				});
 			});
 		</script>
 	</body>
