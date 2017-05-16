@@ -149,6 +149,51 @@
 		<script src="script/jquery-3.2.0.min.js"></script>
 		<script src="script/bootstrap.min.js"></script>
 		<script src="script/education-phone.js"></script>
+		<script>
+			var pageNo = 1;
+			var pageSize = 10;
+			function loadData(){
+				$.ajax({
+						url:"这里填入要访问的地址pageNo="+pageNo+"&pageSize="+pageSize,
+						dataType:"JSON",
+						success:function(data){
+							$.each(data,function(index,news){
+  	  	  	  					var html = "<li>"+
+										"<a href=\" " + news.link + " \" title=\" " + news.title + " \">"+
+											"<span class=\"date\">"+
+												"<strong class=\"day\">" + news.day + "</strong>"+
+												"<strong class=\"year\">" + news.year + "</strong>"+
+												"<strong class=\"month\">" + news.month + "</strong>"+
+											"</span>"+
+											"<div class=\"text\">"+
+												"<h2>" + news.title + "</h2>"+
+												"<span class=\"scan-count\">"+
+													"<i class=\"iconfont icon-scan\"></i>"+news.clicknum+
+												"</span>"+
+												"<i class=\"iconfont icon-triangle-right-bottom\"></i>"+
+											"</div>	"+					
+										"</a>"+
+									"</li>";
+  								//alert("准备插入索引为"+index+"的数据");
+  								$(".news-list").append(html);
+  	  	  	  				});
+						},error:function(){
+							alert("加载失败");
+						}
+				});
+			}
+			$(window).scroll(function(){
+				var scrollTop = $(this).scrollTop();
+				var scrollHeight = $(document).height();
+				var windowHeight = $(this).height();
+				if (scrollTop + windowHeight == scrollHeight) {
+					loadData();
+				}
+			});
+			$(function(){
+				loadData();			
+			});
+		</script>
 	</body>
 
 </html>
