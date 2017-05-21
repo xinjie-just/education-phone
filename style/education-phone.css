@@ -61,6 +61,7 @@ fieldset {
 }
 /*===引入normalize.css的样式===*/
 html {
+  height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -71,6 +72,7 @@ html {
   margin-left: auto;
 }
 body {
+  height: 100%;
   width: 100%;
   max-width: 544px;
   margin-right: auto;
@@ -360,14 +362,23 @@ label:hover {
 .icon-scan:before {
   content: "\e65b";
 }
+.icon-section-one:before {
+  content: "\e621";
+}
+.icon-section-two:before {
+  content: "\e622";
+}
+.icon-section-three:before {
+  content: "\e623";
+}
 .icon-triangle-right-bottom:before {
   content: "\e624";
 }
-.icon-toTop:before {
-  content: "\e636";
-}
 .icon-online:before {
   content: "\e669";
+}
+.icon-toTop:before {
+  content: "\e608";
 }
 /*===首页===*/
 /*头部*/
@@ -380,10 +391,10 @@ label:hover {
   bottom: 100px;
 }
 #toTop i {
-  font-size: 36px;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+  color: rgba(125, 125, 125, 0.5);
 }
-#header {
+header {
   z-index: 200;
   position: relative;
   width: 100%;
@@ -393,7 +404,7 @@ label:hover {
   padding-top: 3px;
   padding-bottom: 3px;
 }
-#header #logo {
+header #logo {
   position: absolute;
   top: 50%;
   left: 0;
@@ -401,23 +412,23 @@ label:hover {
   width: 73%;
   height: 54px;
 }
-#header #logo img {
+header #logo img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   max-height: 60px;
 }
-#header #nav {
+header #nav {
   z-index: 201;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
-#header #nav .menu-wrap {
+header #nav .menu-wrap {
   height: 60px;
 }
-#header #nav .menu-wrap #menu {
+header #nav .menu-wrap #menu {
   position: absolute;
   top: 0;
   right: 0;
@@ -429,11 +440,11 @@ label:hover {
   text-align: center;
   background-color: transparent;
 }
-#header #nav .menu-wrap #menu i {
-  font-size: 18px;
+header #nav .menu-wrap #menu i {
+  font-size: 20px;
   color: #666;
 }
-#header #nav #navList {
+header #nav #navList {
   display: none;
   z-index: 202;
   width: 100%;
@@ -442,25 +453,25 @@ label:hover {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
-#header #nav #navList li {
+header #nav #navList li {
   width: 100%;
   text-align: center;
   margin-top: 8px;
 }
-#header #nav #navList li:first-of-type {
+header #nav #navList li:first-of-type {
   margin-top: 0;
 }
-#header #nav #navList a {
+header #nav #navList a {
   display: inline-block;
   font-size: 14px;
   padding: 6px 25px;
   border-bottom: 1px solid transparent;
 }
-#header #nav #navList a.active {
+header #nav #navList a.active {
   color: #14c2b0;
   border-bottom-color: #14c2b0;
 }
-#header .icon-back {
+header .icon-back {
   display: block;
   z-index: 4;
   position: absolute;
@@ -480,15 +491,15 @@ label:hover {
 .carousel-indicators li {
   width: 15px;
   height: 15px;
-  margin-right: 5px;
+  margin: 0 3px;
   border: 1px solid #babdbf;
 }
 .carousel-indicators .active {
   width: 15px;
   height: 15px;
-  margin-right: 5px;
+  margin: 0 3px;
   background-color: #12c2b0;
-  border-color: transparent;
+  border: 1px solid #12c2b0;
 }
 /*中心概况*/
 .general-profile {
@@ -562,12 +573,37 @@ label:hover {
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.news-center .news-classify figure {
+.news-center .news-classify > div {
   width: 70px;
+}
+.news-center .news-classify > div img {
+  display: block;
+  width: 70px;
+  height: auto;
+}
+.news-center .news-classify > div a {
+  display: inline-block;
+  position: relative;
+  margin-top: 10px;
+  padding: 5px 20px 5px 10px;
+  text-transform: capitalize;
+  color: #999999;
+}
+.news-center .news-classify > div a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
 }
 .news-center .news-classify ul {
   flex: 1;
-  padding-right: 5px;
+  padding-right: 10px;
   padding-left: 10px;
 }
 .news-center .news-classify ul li {
@@ -646,14 +682,7 @@ label:hover {
   text-align: center;
 }
 .service ul li a i {
-  display: inline-block;
-  border: 2px solid #e1e1e1;
-  border-radius: 50%;
-  font-size: 40px;
-  width: 70px;
-  height: 70px;
-  padding: 10px;
-  margin-bottom: 10px;
+  font-size: 50px;
   color: #3cc1d8;
 }
 .service ul li a h4 {
@@ -827,10 +856,228 @@ footer .slogan strong {
   font-size: 14px;
   color: #666;
   line-height: 1.7;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 30px;
 }
 .artilce article p {
   margin-top: 1em;
   text-indent: 2em;
+}
+.artilce article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+/*===错误页面===*/
+#errorMain {
+  width: 100%;
+  height: 100%;
+  background-color: #c3d3d8;
+  background-image: linear-gradient(to bottom, #c3d3d8, #f0f7fa);
+  background-size: 100% 100%;
+  position: relative;
+}
+#errorMain .error {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#errorMain .error img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 50px;
+}
+#errorMain .error span {
+  display: inline-block;
+  font-size: 20px;
+  color: #666666;
+  margin-bottom: 90px;
+}
+#errorMain .error a {
+  display: block;
+  width: 140px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 16px;
+  color: #666666;
+  border: 2px solid #cccccc;
+}
+#errorMain .error a:hover {
+  border: 2px solid;
+}
+/*中心简介*/
+#aboutHeader {
+  border-bottom-width: 0;
+}
+.about-info {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.section-about {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.section-about .point i {
+  display: block;
+  line-height: 1;
+  font-size: 36px;
+  color: #666666;
+}
+.section-about .point span {
+  display: block;
+  font-size: 18px;
+}
+.section-about .point span.cn {
+  color: #333333;
+}
+.section-about .point span.en {
+  color: #666666;
+  text-transform: capitalize;
+}
+.section-info {
+  padding-top: 10px;
+}
+.section-info .point {
+  float: left;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+.section-info article {
+  font-size: 14px;
+  letter-spacing: .1em;
+  line-height: 1.6;
+  text-align: justify;
+  color: #999999;
+}
+.section-info article p,
+.section-info article div {
+  text-indent: 2.2em;
+  margin-top: 7px;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+.section-member {
+  margin-top: 40px;
+}
+.section-member .point {
+  position: relative;
+}
+.section-member .point:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  padding-left: 100px;
+  background-clip: content-box;
+}
+.section-member .details li {
+  margin-bottom: 15px;
+}
+.section-member .details li:last-of-type {
+  margin-bottom: 0;
+}
+.section-member .details li .heading {
+  margin-bottom: 10px;
+}
+.section-member .details li .heading:before {
+  content: "";
+  display: table;
+}
+.section-member .details li .heading:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.section-member .details li .heading strong {
+  display: block;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  color: #666666;
+}
+.section-member .details li .heading img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  float: right;
+}
+.section-member .details li p {
+  font-size: 14px;
+  color: #999999;
+  line-height: 1.6;
+  letter-spacing: .1em;
+}
+.section-logo {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.section-logo .point {
+  position: relative;
+}
+.section-logo .point:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  padding-left: 100px;
+  background-clip: content-box;
+}
+.section-logo .details img {
+  display: block;
+  width: 66px;
+  height: 66px;
+  margin: -30px auto 6px;
+}
+.section-logo .details span {
+  display: block;
+  text-align: center;
+}
+.section-logo .details span.cn {
+  font-size: 20px;
+  color: #666666;
+}
+.section-logo .details span.en {
+  font-size: 18px;
+  color: #999999;
+  text-transform: uppercase;
+}
+.section-logo .details .text {
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #999999;
+  font-size: 16px;
+}
+.section-logo .details .text p,
+.section-logo .details .text div {
+  margin-bottom: 15px;
+}
+.section-logo .details .text p:last-of-type,
+.section-logo .details .text div:last-of-type {
+  margin-bottom: 0;
 }
