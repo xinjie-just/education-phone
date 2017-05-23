@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<title>留言板 | 四川省基础教育监测评估中心</title>
+		<meta name="keywords" content="四川省基础教育监测评估中心" />
+		<meta name="description" content="四川省基础教育监测评估中心" />
+		<link rel="stylesheet" href="style/bootstrap.css" />
+		<link rel="stylesheet" href="style/education-phone.css" />
+	</head>
+
+	<body>
+		<header id="messageBoardHeader" role="banner">
+			<figure class="message-board" id="logo">
+				<img src="images/message-board.png" alt="四川省基础教育监测评估中心 logo" />
+			</figure>
+            <nav role="navigation" id="nav">
+                <div class="menu-wrap">                    
+                    <button id="menu" type="button">
+                        <i id="menuIcon" class="iconfont icon-menu"></i>
+                    </button>
+                </div>                
+                <ul id="navList">
+                    <!-- 对当前页面的链接添加 active 类名 -->
+                    <li><a href="#" title="留言板" class="active">留言板</a></li>
+                    <li><a href="#" title="功能01">功能01</a></li>
+                    <li><a href="#" title="功能02">功能02</a></li>
+                    <li><a href="#" title="功能03">功能03</a></li>
+                    <li><a href="#" title="功能04">功能04</a></li>
+                </ul>
+            </nav>
+		</header>
+		<main id="main" class="message-board-main" role="main">
+			<!--留言列表-->
+			<ul class="message-board-list">
+				<li>
+					<div class="client">
+						<div class="symbol iconfont icon-client"></div>
+						<div class="info">
+							<div class="center">
+								<div class="user">
+									<i class="iconfont icon-user"></i>
+									<span class="nickname">向五洲</span><!--提问者昵称-->
+								</div>
+								<div class="time">
+									<i class="iconfont icon-time"></i>
+									<span class="datetime">2017.05.22 18:11</span>
+								</div>								
+							</div>
+							<!--若有置顶，下面span.stick显示，否则去掉-->
+							<span class="stick">置顶</span>
+						</div>
+					</div>
+					<div class="question">
+						<div class="symbol iconfont icon-question"></div>
+						<div class="info text">
+							<div class="text-wrap">
+								<span class="tips">留言：</span>
+								<!--下面显示留言内容-->
+								<p>留言内容，留言内容，留言内容，留言内容，留言内容，留言内容，留言内容</p>	
+								<img src="images/about-info.jpg"/>
+							</div>
+						</div>
+					</div>
+					<div class="answer">
+						<div class="symbol iconfont icon-answer"></div>
+						<div class="text">
+							<div class="text-wrap">
+								<span class="tips">回复：</span>
+								<!--下面显示回复内容-->
+								<p>回复内容，回复内容，回复内容，回复内容，回复内容，回复内容，回复内容</p>	
+								<img src="images/about-info.jpg"/>							
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!--留言板-->
+			<div class="write-message">
+				<i class="iconfont icon-write-message" id="iconWriteMessage" title="打开留言板"></i>
+				<div class="my-message-container" id="myMessageContainer">
+					<div class="close-wrap">
+						<i class="iconfont icon-close" id="iconClose" title="关闭留言板"></i>
+					</div>					
+					<time>
+						<i class="iconfont icon-time"></i>
+						<span>2017/05/30 18:02</span>
+					</time>
+					<form action="#" method="post" name="messageForm" id="messageForm">
+						<textarea name="message" placeholder="请输入留言内容"></textarea>
+						<input type="text" name="name" id="name" placeholder="请输入您的姓名" />
+						<input type="text" name="phone" id="phone" placeholder="请输入您的手机号" />
+						<div class="code">
+							<input type="text" name="code" id="code" placeholder="短信验证" />
+							<a href="javascript:void(0)" title="获取验证码">获取验证码</a>
+						</div>
+						<!--验证码发送状态,通过i标签判断，如果发送成功为 submit,错误为 close-->
+						<div class="code-status">
+							<!--<i class="iconfont icon-submit"></i>验证码已发送至手机-->
+							   <i class="iconfont icon-close"></i>验证码发送失败    
+						</div>
+						<button type="submit" name="messageSubmit" id="messageSubmit" class="iconfont icon-submit" title="提交我的留言"></button>
+					</form>
+				</div>
+			</div>
+		</main>
+		<footer id="noSloganFooter" role="contentinfo">
+			<small>&copy; 四川省基础教育评估中心</small>
+			<!--回到顶部-->
+			<a id="toTop" href="javascript:void(0);" title="回到顶部">
+				<i class="iconfont icon-toTop"></i>
+			</a> 
+		</footer>
+		<script src="script/jquery-3.2.0.min.js"></script>
+		<script src="script/bootstrap.min.js"></script>
+		<script src="script/education-phone.js"></script>
+		<script>
+			/*没有数据时，让底部触底*/
+			function noData() {
+				var windowHeight = $(window).innerHeight();
+				var footerHeight = $("#noSloganFooter").height();
+				var headerHeight = $("#messageBoardHeader").height();
+				var liLen = $(".message-board-list").find("li").length;
+				if (liLen == 0){
+					$(".message-board-list").css("height", windowHeight - footerHeight - headerHeight);
+					$(".message-board-list").append("<img src='images/nodata.png' alt='无数据' style=' display: bblock; max-width: 100%; height: auto; margin-right: auto; margin-left: auto;'>")
+				}					
+			}
+			$(function(){				
+				noData();
+				
+				//打开和关闭留言板
+				$("#iconWriteMessage").on("click", function(){
+					$("#myMessageContainer").slideDown(400);
+				});
+				$("#iconClose").on("click", function(){
+					$("#myMessageContainer").slideUp(400);
+				});
+				
+				/*下拉刷新*/
+				var pageNo = 1;
+				var pageSize = 10;
+				function loadData(){
+					$.ajax({
+						url:"这里填入要访问的地址pageNo="+pageNo+"&pageSize="+pageSize,
+						dataType:"JSON",
+						success:function(data){
+							if(data.length == 0) {//下拉后没有数据时
+								$(".message-board-list").append("<p style='font-size: 18px; padding-top: 20px; padding-bottom: 20px; text-align: center;'>亲，已无更多内容哦~</p>");
+							}
+							else{
+								$.each(data,function(index,msg){
+									var html = "<li>"+
+													"<div class=\"client\">"+
+														"<div class=\"symbol iconfont icon-client\"></div>"+
+														"<div class=\"info\">"+
+															"<div class=\"center\">"+
+																"<div class=\"user\">"+
+																	"<i class=\"iconfont icon-user\"></i>"+
+																	"<span class=\"nickname\">" + msg.nickname + "</span>"+
+																"</div>"+
+																"<div class=\"time\">"+
+																	"<i class=\"iconfont icon-time\"></i>"+
+																	"<span class=\"datetime\">" + msg.time + "</span>"+
+																"</div>"+			
+															"</div>"+
+															"<span class=\"stick\">置顶</span>"+
+														"</div>"+
+													"</div>"+
+													"<div class=\"question\">"+
+														"<div class=\"symbol iconfont icon-question\"></div>"+
+														"<div class=\"info text\">"+
+															"<div class=\"text-wrap\">"+
+																"<span class=\"tips\">留言：</span>"+
+																"<p>" + msg.msgcontent + "</p>"+
+															"</div>"+
+														"</div>"+
+													"</div>"+
+													"<div class=\"answer\">"+
+														"<div class=\"symbol iconfont icon-answer\"></div>"+
+														"<div class=\"text\">"+
+															"<div class=\"text-wrap\">"+
+																"<span class=\"tips\">回复：</span>"+
+																"<p>" + msg.answercontent  + "</p>"+					
+															"</div>"+
+														"</div>"+
+													"</div>"+
+												"</li>";
+									//alert("准备插入索引为"+index+"的数据");
+									$(".message-board-list").append(html);
+								});
+								pageNo += 1;
+							}
+						},error:function(){
+							alert("加载失败");
+						}
+					});
+				}
+				$(window).scroll(function(){
+					var scrollTop = $(this).scrollTop();
+					var scrollHeight = $(document).height();
+					var windowHeight = $(this).height();
+					if (scrollTop + windowHeight == scrollHeight) {
+						loadData();
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

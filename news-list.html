@@ -35,108 +35,6 @@
 						</div>						
 					</a>
 				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
-				<li>
-					<a href="#" title="新闻标题">
-						<span class="date">
-							<strong class="day">20</strong>
-							<strong class="year">2017</strong>
-							<strong class="month">JUNE</strong>
-						</span>
-						<div class="text">
-							<h2>新闻标题新闻标题新闻标题新闻标题新闻标题</h2>
-							<span class="scan-count">
-								<i class="iconfont icon-scan"></i>
-								5555
-							</span>
-							<i class="iconfont icon-triangle-right-bottom"></i>
-						</div>						
-					</a>
-				</li>
 			</ul>
 		</main>
 		<footer id="noSloganFooter" role="contentinfo">
@@ -157,15 +55,12 @@
 				var figureHeight = $(".news-list-type").height();
 				var liLen = $(".news-list").find("li").length;
 				if (liLen == 0){
-					$(".news-list").text("没有数据").css({
-						textAlign: "center",
-						fontSize: "18px",
-						coor: "#333",
-						marginBottom: 0,
-						paddingTop: "20px",
-						height: windowHeight - footerHeight - figureHeight
+					$(".news-list").css({
+						"height": windowHeight - footerHeight - figureHeight,
+						"marginBottom": 0
 					});
-				}					
+					$(".news-list").append("<img src='images/nodata.png' alt='无数据' style=' display: bblock; max-width: 100%; height: auto; margin-right: auto; margin-left: auto;'>")
+				}
 			}
 			$(function(){
 				noData();
