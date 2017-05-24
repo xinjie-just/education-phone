@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<title>密码验证 | 四川省基础教育监测评估中心</title>
+		<meta name="keywords" content="四川省基础教育监测评估中心" />
+		<meta name="description" content="四川省基础教育监测评估中心" />
+		<link rel="stylesheet" href="style/bootstrap.css" />
+		<link rel="stylesheet" href="style/education-phone.css" />
+	</head>
+
+	<body class="special-color-body">
+		<main id="main" class="check-main" role="main">
+			<form action="" method="post" id="check" name="phoneCheck" class="check-form">
+				<img src="images/authentication.png" alt="身份验证" class="authentication"/>
+				<div class="pwd">
+					<label for="pwd">
+						<i class="iconfont icon-password"></i>
+						<input type="text" id="pwd" name="pwd" autofocus placeholder="请输入联络的密码" />
+					</label>					
+				</div>
+				<!--下面是ajax提交后，返回的错误提示，没错误时不显示-->
+				<p id="errorTips">这里是错误提示</p>
+				<button type="submit" name="checkSubmit" id="checkSubmit" class="iconfont icon-submit" title="提交身份验证"></button>
+			</form>
+		</main>
+		<footer id="noSloganFooter" role="contentinfo">
+			<small>&copy; 四川省基础教育评估中心</small>
+			<!--回到顶部-->
+			<a id="toTop" href="javascript:void(0);" title="回到顶部">
+				<i class="iconfont icon-toTop"></i>
+			</a> 
+		</footer>
+		<script src="script/jquery-3.2.0.min.js"></script>
+		<script src="script/bootstrap.min.js"></script>
+		<script src="script/jquery.validate.min.js"></script>
+		<script src="script/education-phone.js"></script>
+		<script>
+			$(function(){
+				$("#check").validate({
+					rules: {
+						pwd: "required"
+					},
+					messages: {
+						pwd: "请输入联络密码"
+					},
+					errorPlacement: function(error, element) {
+						error.insertBefore(element.parents("div"));
+					},
+					submitHandler: function() {
+						$.ajax({
+							url: "这里填写地址",
+							type: "POST",
+							dataType: "JSON",
+							data: {
+								pwd: $("#pwd").val() //冒号前面是存入数据库的字段名
+							},
+							success: function(data) {
+								if(data.success) {
+									location.href = '这里填写跳转的地址';
+								} else {
+									$("#errorTips").css("visibility","visible").text("出现错误：" + data.errorMsg); //errorMsg为错误信息，将会显示在 #errorTips 中
+								}
+							},
+							error: function(jqXHR){     
+							    alert("发生错误：" + jqXHR.status);  
+							}
+						});
+					}
+				});		
+			});
+		</script>
+	</body>
+
+</html>

@@ -354,6 +354,7 @@ figure {
 }
 label {
     cursor: pointer;
+    margin-bottom: 0; 
     &:hover {
         opacity: .8;
     }
@@ -396,6 +397,20 @@ label {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: @lineNumber;
 }
+
+/*validate错误提示*/
+
+label.error {
+    color: #f00;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#errorTips {
+    display: block;
+    color: #f00;
+    visibility: hidden;
+}
                     
 /*===矢量图标字体===*/
 @font-face {
@@ -413,9 +428,15 @@ label {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.icon-refresh:before { content: "\e604"; }
+
 .icon-menu:before { content: "\e600"; }
 
 .icon-time:before { content: "\e6b8"; }
+
+.icon-password:before { content: "\e61f"; }
+
+.icon-phone:before { content: "\e648"; }
 
 .icon-submit:before { content: "\e60f"; }
 
@@ -429,7 +450,11 @@ label {
 
 .icon-scan:before { content: "\e65b"; }
 
+.icon-verification2:before { content: "\e635"; }
+
 .icon-waiting:before { content: "\e630"; }
+
+.icon-sms-verification:before { content: "\e607"; }
 
 .icon-show:before { content: "\e60a"; }
 
@@ -917,6 +942,9 @@ footer {
     }
 }
 #noSloganFooter {
+    position: fixed;
+    bottom: 0;
+    .page-width;
     small {
         padding-bottom: 15px;        
     }
@@ -1334,8 +1362,9 @@ footer {
     display: none;
     width: 96%;
     z-index: 100;
-    position: fixed;
-    top: 80px;
+    //position: fixed;
+    position: absolute;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -1633,14 +1662,143 @@ footer {
     }
 }
 
-//.hideShowToggle {
-//  animation: hideShow 0.3s ease;    
-//}
-//@keyframes hideShow {
-//  from {
-//      transform: rotateZ(0deg);
-//  }
-//  to {
-//      transform: rotateZ(180deg);
-//  }
-//}
+/*===身份验证(手机验证)===*/
+.special-color-body {
+    background-color: #eee;    
+}
+.check-main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.check-form {
+    .center-content;
+    border-radius: 6px;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+    padding: 30px 15px;
+    .authentication {
+        display: block;
+        max-width: 60%;
+        height: auto;
+        margin: 0 auto 30px;
+    }
+    > div {
+        > label {
+            @size: 16px;
+            position: relative;
+            height: 36px;
+            line-height: 34px;
+            border-radius: @size;
+            border: 1px solid #b4b0e2;
+            padding-right: @size;
+            padding-left: @size;
+            font-size: @fs - 2;
+            color: #999; 
+            &:focus {
+                border-color: #b4b0e2 + #333;            
+            }
+            i {
+                position: absolute;
+                top: 50%;
+                left: @size - 4;
+                transform: translateY(-50%);
+                display: block;
+                width: 16px;
+                font-size: @fs + 2;
+                color: @text-color + #666;
+            }
+            input {
+                padding-left: @size + 6;
+                width: 100%;
+                //text-align: center;
+                letter-spacing: .1em;
+            }
+        }
+    }
+    .phone,
+    .pwd,
+    .name {
+        label {            
+            width: 100%;
+        }
+        margin-bottom: 18px;
+    }
+    .verification,
+    .smsVerification {        
+        margin-bottom: 18px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        label {
+            flex: 1;
+        }
+    }
+    .verification {
+        img {
+            display: block;
+            width: 60px;
+            height: 30px;
+            margin-left: 10px;
+        }
+        a {
+            display: block;
+            margin-left: 6px;
+            font-size: @fs + 4;
+            color: #1baacd;
+            padding: 4px;
+        }
+    }
+    .smsVerification {
+        a {
+            display: block;
+            margin-left: 10px;
+            font-size: @fs - 2;
+            padding: 4px 10px;
+            border-radius: 16px;
+            background-color: #999;
+            color: #fff;
+        }            
+    }
+    .code-status {
+        text-align: center;
+        font-size: @fs - 4;
+        color: @text-color;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: @fs - 2;
+            border-radius: 50%;
+            margin-right: 10px;
+            &.icon-submit {
+                background-color: #08d614;
+                color: #fff;
+            }
+            &.icon-close {
+                background-color: #f00;
+                color: #fff;
+            }
+        }
+    }
+    #checkSubmit {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        color: #fff;
+        background-color: #0ebdb7;
+        border-radius: 50%;
+        border: 3px solid #aee8e6;
+        font-size: @fs + 20;
+    }
+}

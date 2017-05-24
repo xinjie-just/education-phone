@@ -318,6 +318,7 @@ figure img {
 }
 label {
   cursor: pointer;
+  margin-bottom: 0;
 }
 label:hover {
   opacity: .8;
@@ -350,6 +351,17 @@ label:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/*validate错误提示*/
+label.error {
+  color: #f00;
+  display: block;
+  margin-bottom: 5px;
+}
+#errorTips {
+  display: block;
+  color: #f00;
+  visibility: hidden;
+}
 /*===矢量图标字体===*/
 @font-face {
   font-family: iconfont;
@@ -363,11 +375,20 @@ label:hover {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-refresh:before {
+  content: "\e604";
+}
 .icon-menu:before {
   content: "\e600";
 }
 .icon-time:before {
   content: "\e6b8";
+}
+.icon-password:before {
+  content: "\e61f";
+}
+.icon-phone:before {
+  content: "\e648";
 }
 .icon-submit:before {
   content: "\e60f";
@@ -387,8 +408,14 @@ label:hover {
 .icon-scan:before {
   content: "\e65b";
 }
+.icon-verification2:before {
+  content: "\e635";
+}
 .icon-waiting:before {
   content: "\e630";
+}
+.icon-sms-verification:before {
+  content: "\e607";
 }
 .icon-show:before {
   content: "\e60a";
@@ -890,6 +917,14 @@ footer .slogan strong {
   font-size: 14px;
   color: #6eb800;
 }
+#noSloganFooter {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 544px;
+  margin-right: auto;
+  margin-left: auto;
+}
 #noSloganFooter small {
   padding-bottom: 15px;
 }
@@ -1318,8 +1353,8 @@ footer .slogan strong {
   display: none;
   width: 96%;
   z-index: 100;
-  position: fixed;
-  top: 80px;
+  position: absolute;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
@@ -1615,4 +1650,142 @@ footer .slogan strong {
 }
 .info-reporting-list li .handle-wrap .handle a.disabled {
   cursor: not-allowed;
+}
+/*===身份验证(手机验证)===*/
+.special-color-body {
+  background-color: #eee;
+}
+.check-main {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.check-form {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  padding: 30px 15px;
+}
+.check-form .authentication {
+  display: block;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 30px;
+}
+.check-form > div > label {
+  position: relative;
+  height: 36px;
+  line-height: 34px;
+  border-radius: 16px;
+  border: 1px solid #b4b0e2;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-size: 14px;
+  color: #999;
+}
+.check-form > div > label:focus {
+  border-color: #e7e3ff;
+}
+.check-form > div > label i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  display: block;
+  width: 16px;
+  font-size: 18px;
+  color: #999999;
+}
+.check-form > div > label input {
+  padding-left: 22px;
+  width: 100%;
+  letter-spacing: .1em;
+}
+.check-form .phone,
+.check-form .pwd,
+.check-form .name {
+  margin-bottom: 18px;
+}
+.check-form .phone label,
+.check-form .pwd label,
+.check-form .name label {
+  width: 100%;
+}
+.check-form .verification,
+.check-form .smsVerification {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.check-form .verification label,
+.check-form .smsVerification label {
+  flex: 1;
+}
+.check-form .verification img {
+  display: block;
+  width: 60px;
+  height: 30px;
+  margin-left: 10px;
+}
+.check-form .verification a {
+  display: block;
+  margin-left: 6px;
+  font-size: 20px;
+  color: #1baacd;
+  padding: 4px;
+}
+.check-form .smsVerification a {
+  display: block;
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  background-color: #999;
+  color: #fff;
+}
+.check-form .code-status {
+  text-align: center;
+  font-size: 12px;
+  color: #333333;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.check-form .code-status i {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.check-form .code-status i.icon-submit {
+  background-color: #08d614;
+  color: #fff;
+}
+.check-form .code-status i.icon-close {
+  background-color: #f00;
+  color: #fff;
+}
+.check-form #checkSubmit {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  background-color: #0ebdb7;
+  border-radius: 50%;
+  border: 3px solid #aee8e6;
+  font-size: 36px;
 }
