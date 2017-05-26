@@ -428,67 +428,169 @@ label.error {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.icon-refresh:before { content: "\e604"; }
+.icon-refresh:before {
+    content: "\e604";
+}
 
-.icon-menu:before { content: "\e600"; }
+.icon-menu:before {
+    content: "\e600";
+}
 
-.icon-time:before { content: "\e6b8"; }
+.icon-time:before {
+    content: "\e6b8";
+}
 
-.icon-password:before { content: "\e61f"; }
+.icon-password:before {
+    content: "\e61f";
+}
 
-.icon-phone:before { content: "\e648"; }
+.icon-phone:before {
+    content: "\e648";
+}
 
-.icon-submit:before { content: "\e60f"; }
+.icon-submit:before {
+    content: "\e60f";
+}
 
-.icon-answer:before { content: "\e625"; }
+.icon-answer:before {
+    content: "\e625";
+}
 
-.icon-close:before { content: "\e792"; }
+.icon-close:before {
+    content: "\e792";
+}
 
-.icon-user:before { content: "\e602"; }
+.icon-user:before {
+    content: "\e602";
+}
 
-.icon-working:before { content: "\e61a"; }
+.icon-working:before {
+    content: "\e61a";
+}
 
-.icon-scan:before { content: "\e65b"; }
+.icon-scan:before {
+    content: "\e65b";
+}
 
-.icon-verification2:before { content: "\e635"; }
+.icon-verification2:before {
+    content: "\e635";
+}
 
-.icon-waiting:before { content: "\e630"; }
+.icon-waiting:before {
+    content: "\e630";
+}
 
-.icon-sms-verification:before { content: "\e607"; }
+.icon-sms-verification:before {
+    content: "\e607";
+}
 
-.icon-show:before { content: "\e60a"; }
+.icon-show:before {
+    content: "\e60a";
+}
 
-.icon-voting:before { content: "\e673"; }
+.icon-voting:before {
+    content: "\e673";
+}
 
-.icon-past:before { content: "\e608"; }
+.icon-past:before {
+    content: "\e608";
+}
 
-.icon-write-message:before { content: "\e660"; }
+.icon-write-message:before {
+    content: "\e660";
+}
 
-.icon-section-one:before { content: "\e621"; }
+.icon-section-one:before {
+    content: "\e621";
+}
 
-.icon-section-two:before { content: "\e622"; }
+.icon-section-two:before {
+    content: "\e622";
+}
 
-.icon-section-three:before { content: "\e623"; }
+.icon-section-three:before {
+    content: "\e623";
+}
 
-.icon-toTop:before { content: "\e61e"; }
+.icon-toTop:before {
+    content: "\e61e";
+}
 
-.icon-question:before { content: "\e646"; }
+.icon-question:before {
+    content: "\e646";
+}
 
-.icon-triangle-right-bottom:before { content: "\e624"; }
+.icon-introduction:before {
+    content: "\e644";
+}
 
-.icon-date:before { content: "\e8a6"; }
+.icon-triangle-right-bottom:before {
+    content: "\e624";
+}
 
-.icon-online:before { content: "\e669"; }
+.icon-date:before {
+    content: "\e8a6";
+}
 
-.icon-client:before { content: "\e634"; }
+.icon-summary:before {
+    content: "\e617";
+}
 
-.icon-see:before { content: "\e62d"; }
+.icon-general-profile:before {
+    content: "\e65d";
+}
 
-.icon-disabled:before { content: "\e601"; }
+.icon-msg-board:before {
+    content: "\e65f";
+}
 
-.icon-fill:before { content: "\e60b"; }
+.icon-vote1:before {
+    content: "\e664";
+}
 
-.icon-reported:before { content: "\e626"; }
+.icon-online:before {
+    content: "\e669";
+}
+
+.icon-reprot:before {
+    content: "\e66b";
+}
+
+.icon-client:before {
+    content: "\e634";
+}
+
+.icon-see:before {
+    content: "\e62d";
+}
+
+.icon-disabled:before {
+    content: "\e601";
+}
+
+.icon-fill:before {
+    content: "\e60b";
+}
+
+.icon-area:before {
+    content: "\e687";
+}
+
+.icon-reported:before {
+    content: "\e626";
+}
+
+.icon-assessment:before {
+    content: "\e655";
+}
+
+.icon-info:before {
+    content: "\e629";
+}
+
+.icon-vote2:before {
+    content: "\e62a";
+}
 
 /*===首页===*/
 /*头部*/
@@ -638,10 +740,14 @@ header {
         a {
             display: @width;
             display: block;
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-size: 80px 80px;
-            padding: 95px 5px 0;
+            padding: 5px 5px 0;
+            text-align: center;
+            i {
+                display: inline-block;
+                font-size: 60px;
+                color: #7dc117;
+                margin-bottom: 10px;
+            }
             span {
                 text-align: center;
                 display: block;
@@ -656,21 +762,6 @@ header {
                 color: #666;
                 font-size: @fs - 4;
                 text-transform: uppercase;
-            }
-        }
-        &.introducation {
-            a {
-                background-image: url(../images/introduction.png);
-            }
-        }
-        &.summary {
-            a {
-                background-image: url(../images/summary.png);
-            }
-        }
-        &.assessment {
-            a {
-                background-image: url(../images/assessment.png);
             }
         }
     }
@@ -801,7 +892,7 @@ header {
                 padding-left: 15px;
                 text-align: center;
                 i {
-                    font-size: @fs + 34;
+                    font-size: @fs + 40;
                     color: #3cc1d8;
                 }
                 h4 {

@@ -444,14 +444,32 @@ label.error {
 .icon-question:before {
   content: "\e646";
 }
+.icon-introduction:before {
+  content: "\e644";
+}
 .icon-triangle-right-bottom:before {
   content: "\e624";
 }
 .icon-date:before {
   content: "\e8a6";
 }
+.icon-summary:before {
+  content: "\e617";
+}
+.icon-general-profile:before {
+  content: "\e65d";
+}
+.icon-msg-board:before {
+  content: "\e65f";
+}
+.icon-vote1:before {
+  content: "\e664";
+}
 .icon-online:before {
   content: "\e669";
+}
+.icon-reprot:before {
+  content: "\e66b";
 }
 .icon-client:before {
   content: "\e634";
@@ -465,8 +483,20 @@ label.error {
 .icon-fill:before {
   content: "\e60b";
 }
+.icon-area:before {
+  content: "\e687";
+}
 .icon-reported:before {
   content: "\e626";
+}
+.icon-assessment:before {
+  content: "\e655";
+}
+.icon-info:before {
+  content: "\e629";
+}
+.icon-vote2:before {
+  content: "\e62a";
 }
 /*===首页===*/
 /*头部*/
@@ -620,10 +650,14 @@ header .icon-back {
 .general-profile h3 a {
   display: 100%;
   display: block;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 80px 80px;
-  padding: 95px 5px 0;
+  padding: 5px 5px 0;
+  text-align: center;
+}
+.general-profile h3 a i {
+  display: inline-block;
+  font-size: 60px;
+  color: #7dc117;
+  margin-bottom: 10px;
 }
 .general-profile h3 a span {
   text-align: center;
@@ -641,15 +675,6 @@ header .icon-back {
   color: #666;
   font-size: 12px;
   text-transform: uppercase;
-}
-.general-profile h3.introducation a {
-  background-image: url(../images/introduction.png);
-}
-.general-profile h3.summary a {
-  background-image: url(../images/summary.png);
-}
-.general-profile h3.assessment a {
-  background-image: url(../images/assessment.png);
 }
 /*新闻中心*/
 .news-center {
@@ -779,7 +804,7 @@ header .icon-back {
   text-align: center;
 }
 .service ul li a i {
-  font-size: 50px;
+  font-size: 56px;
   color: #3cc1d8;
 }
 .service ul li a h4 {
