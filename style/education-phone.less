@@ -528,13 +528,14 @@ header {
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        width: 73%;
         height: @height - 6;
+        width: 74%;
         img {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             max-height: @height;
+            width: auto;
         }
     }
     #nav {
@@ -2218,4 +2219,94 @@ footer {
         background-color: currentcolor;
         background-clip: content-box;
     }
+}
+
+/*===检测项目===*/
+.major-projects-list {
+    .center-content;
+    margin-top: 20px;
+    > li {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        img {
+            display: block;
+            width: 100px;
+            height: auto;
+        }
+        .text {
+            flex: 1;
+            h3 {
+                font-size: @fs;
+                color: @text-color;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+            ul {
+                font-size: @fs - 2;
+                color: @text-color + #666;
+                li {
+                    line-height: 20px;
+                    margin-bottom: 6px;
+                    position: relative;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 8px;
+                        width: 3px;
+                        height: 3px;
+                        background-color: currentcolor;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        &:nth-of-type(2n+1) {
+            img {
+                margin-right: 20px;
+            }
+            .text {
+                text-align: left;
+                ul {
+                    li {
+                        padding-left: 10px;
+                        &:before {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-of-type(2n+2) {
+            img {
+                margin-left: 20px;
+            }
+            .text {
+                text-align: right;
+                ul {
+                    li {
+                        padding-right: 10px;
+                        &:before {
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.projects-end {
+    margin-top: 30px;
+    margin-bottom: 90px;
+    text-align: center;
+    color: @text-color + #666;
+    font-size: @fs;
+    line-height: 1.6;
 }

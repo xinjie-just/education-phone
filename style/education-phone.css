@@ -505,14 +505,15 @@ header #logo {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  width: 73%;
   height: 54px;
+  width: 74%;
 }
 header #logo img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   max-height: 60px;
+  width: auto;
 }
 header #nav {
   z-index: 201;
@@ -2136,4 +2137,88 @@ footer .slogan strong {
   padding-left: 24px;
   background-color: currentcolor;
   background-clip: content-box;
+}
+/*===检测项目===*/
+.major-projects-list {
+  display: block;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+.major-projects-list > li {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.major-projects-list > li img {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+.major-projects-list > li .text {
+  flex: 1;
+}
+.major-projects-list > li .text h3 {
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.major-projects-list > li .text ul {
+  font-size: 14px;
+  color: #999999;
+}
+.major-projects-list > li .text ul li {
+  line-height: 20px;
+  margin-bottom: 6px;
+  position: relative;
+}
+.major-projects-list > li .text ul li:last-of-type {
+  margin-bottom: 0;
+}
+.major-projects-list > li .text ul li:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 3px;
+  height: 3px;
+  background-color: currentcolor;
+  border-radius: 50%;
+}
+.major-projects-list > li:nth-of-type(2n+1) img {
+  margin-right: 20px;
+}
+.major-projects-list > li:nth-of-type(2n+1) .text {
+  text-align: left;
+}
+.major-projects-list > li:nth-of-type(2n+1) .text ul li {
+  padding-left: 10px;
+}
+.major-projects-list > li:nth-of-type(2n+1) .text ul li:before {
+  left: 0;
+}
+.major-projects-list > li:nth-of-type(2n+2) img {
+  margin-left: 20px;
+}
+.major-projects-list > li:nth-of-type(2n+2) .text {
+  text-align: right;
+}
+.major-projects-list > li:nth-of-type(2n+2) .text ul li {
+  padding-right: 10px;
+}
+.major-projects-list > li:nth-of-type(2n+2) .text ul li:before {
+  right: 0;
+}
+.projects-end {
+  margin-top: 30px;
+  margin-bottom: 90px;
+  text-align: center;
+  color: #999999;
+  font-size: 16px;
+  line-height: 1.6;
 }
