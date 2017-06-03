@@ -1457,7 +1457,6 @@ footer {
     display: none;
     width: 96%;
     z-index: 100;
-    //position: fixed;
     position: absolute;
     top: 60px;
     left: 50%;
@@ -1652,7 +1651,7 @@ footer {
             &:before {
                 content: "";
                 position: absolute;
-                top: 5px;
+                top: 10px;
                 left: -14px;
                 width: 5px;
                 height: 5px;
@@ -1660,7 +1659,7 @@ footer {
                 background-color: #a2cc30;
             }
             h3 {
-                font-size: @fs;
+                font-size: @fs - 1;
                 color: @text-color;
                 line-height: 1.5;
                 .line-clamp;
@@ -1668,8 +1667,7 @@ footer {
             .status {
                 position: absolute;
                 bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
+                right: 50px;
                 display: block;
                 font-size: @fs - 2;
                 &.working {
@@ -1768,21 +1766,27 @@ footer {
 .check-form {
     .center-content;
     border-radius: 6px;
-    border: 1px solid #e4e4e4;
     background-color: #fff;
-    padding: 30px 15px;
     .authentication {
         display: block;
         max-width: 60%;
         height: auto;
         margin: 0 auto 30px;
+    }    
+    > label.error {
+        background: url("../images/unchecked.gif") no-repeat left center;
+        padding-left: 18px;
     }
+    > label.checked {
+        background: url("../images/checked.gif") no-repeat left center;
+        padding-left: 18px;
+    }    
     > div {
         > label {
-            @size: 16px;
+            @size: 20px;
             position: relative;
-            height: 36px;
-            line-height: 34px;
+            height: 40px;
+            line-height: 38px;
             border-radius: @size;
             border: 1px solid #b4b0e2;
             padding-right: @size;
@@ -1799,13 +1803,12 @@ footer {
                 transform: translateY(-50%);
                 display: block;
                 width: 16px;
-                font-size: @fs + 2;
+                font-size: @fs + 4;
                 color: @text-color + #666;
             }
             input {
                 padding-left: @size + 6;
                 width: 100%;
-                //text-align: center;
                 letter-spacing: .1em;
             }
         }
@@ -1850,7 +1853,7 @@ footer {
             display: block;
             margin-left: 10px;
             font-size: @fs - 2;
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 16px;
             background-color: #999;
             color: #fff;
@@ -1897,6 +1900,7 @@ footer {
         font-size: @fs + 20;
     }
 }
+
 
 /*===大事纪要===*/
 .events-list {
