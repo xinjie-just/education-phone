@@ -616,14 +616,14 @@ header .icon-back {
   bottom: -30px;
 }
 .carousel-indicators li {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   margin: 0 3px;
   border: 1px solid #babdbf;
 }
 .carousel-indicators .active {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   margin: 0 3px;
   background-color: #12c2b0;
   border: 1px solid #12c2b0;
@@ -1617,9 +1617,11 @@ footer .slogan strong {
 .info-reporting-list li .heading button {
   display: block;
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   right: 5px;
-  transform: translateY(-50%);
+  margin-top: auto;
+  margin-bottom: auto;
   color: #666;
   font-size: 24px;
 }
@@ -1663,6 +1665,7 @@ footer .slogan strong {
   padding: 3px 15px 3px 20px;
   border-radius: 8px;
   color: #fff;
+  margin-right: 50px;
 }
 .info-reporting-list li .handle-wrap .handle a.fill {
   background-color: #57c3b3;

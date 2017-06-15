@@ -715,14 +715,14 @@ header {
     bottom: -30px;
 }
 .carousel-indicators li {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     margin: 0 3px;
     border: 1px solid #babdbf;
 }
 .carousel-indicators .active {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     margin: 0 3px;
     background-color: #12c2b0;
     border: 1px solid #12c2b0;
@@ -1636,6 +1636,7 @@ footer {
     padding-top: 20px;
     padding-bottom: 40px;
     li {
+        @size: 50px;
         background-color: #fff;
         border-radius: 10px;
         margin-bottom: 15px;
@@ -1646,7 +1647,7 @@ footer {
         .heading {
             width: 100%;
             height: 74px;
-            padding-right: 50px;
+            padding-right: @size;
             position: relative;
             &:before {
                 content: "";
@@ -1667,7 +1668,7 @@ footer {
             .status {
                 position: absolute;
                 bottom: 0;
-                right: 50px;
+                right: @size;
                 display: block;
                 font-size: @fs - 2;
                 &.working {
@@ -1684,12 +1685,26 @@ footer {
                     margin-right: 5px;
                 }
             }
+//          button {
+//              display: block;
+//              position: absolute;
+//              top: 50%;
+//              right: 5px;
+//              transform: translateY(-50%);
+//              color: #666;
+//              font-size: @fs + 8;
+//          }
             button {
                 display: block;
                 position: absolute;
-                top: 50%;
+                top: 0;
+                bottom: 0;
                 right: 5px;
-                transform: translateY(-50%);
+                margin-top: auto;
+                margin-bottom: auto;
+                //width: 30px;
+                //height: 30px;
+                //transform: translateY(-50%);
                 color: #666;
                 font-size: @fs + 8;
             }
@@ -1734,6 +1749,7 @@ footer {
                     padding: 3px 15px 3px 20px;
                     border-radius: 8px;
                     color: #fff;
+                    margin-right: @size;
                     &.fill {
                         background-color: #57c3b3;
                     }

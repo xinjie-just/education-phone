@@ -161,7 +161,22 @@
 			/*dom结构加载完成*/
 			$(function(){
 				$(".show-hide").on("click", function() {
-					$(this).parent().siblings(".handle-wrap").slideToggle();
+					$(this).parent().siblings(".handle-wrap").toggle();
+					
+					//信息上报中点击展开和关闭按钮
+						if($(this).parent().siblings(".handle-wrap").css("display") == "block"){
+							$(this).css({
+								color: "#aeaeae",
+								transform: "rotate(180deg)",
+								top: "155px"
+							});
+						}else {
+							$(this).css({
+								color: "#666",
+								transform: "rotate(0deg)",
+								top: 0
+							});
+						}					
 				});
 				
 				//执行没有数据的函数

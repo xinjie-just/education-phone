@@ -102,7 +102,13 @@
 		</footer>
 		<script src="script/jquery-3.2.0.min.js"></script>
 		<script src="script/bootstrap.min.js"></script>
-		<script src="script/education-phone.js"></script>
+		<!--<script src="script/education-phone.js?time=New Date()"></script>-->
+		<script>
+			var time = new Date().getTime();
+			//console.log(time);
+			document.write('<script src="script/education-phone.js?time=' + time + '"><\/script>');			
+		</script>
+
 	</body>
 
 </html>

@@ -14,6 +14,11 @@ $("#menu").on("click", function(e){
 $("#navList").on("click",function(e){
 	e.stopPropagation();
 });
+$(window).scroll(function() {
+	if($(window).scrollTop() >= 50) {
+		$("#navList").slideUp(400);
+	}
+})
 
 /*回到顶部*/
 $(window).scroll(function() {
@@ -27,6 +32,7 @@ $("#toTop").click(function () {
     $("html, body").animate({scrollTop: 0}, 100); /* 持续时间为 100ms */
     return false;
 });
+
 
 /*===设置文章格式===*/
 $("article").css("fontSize", "14px");
